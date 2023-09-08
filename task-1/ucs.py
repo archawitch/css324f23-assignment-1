@@ -3,8 +3,7 @@ from utils import create_node
 
 
 def uniform_cost_tree_search(problem):
-    initial_node = create_node(problem.initial_state(), None,
-                               "", 0, 0)
+    initial_node = create_node(problem.initial_state(), None, "", 0, 0)
     frontier = [(0, initial_node)]
     n_visits = 0
     while True:
@@ -19,8 +18,7 @@ def uniform_cost_tree_search(problem):
             else:
                 for succ, cost in problem.successors(state):
                     child_cost = path_cost + cost
-                    child = create_node(succ, node, "", child_cost,
-                                        depth + 1)
+                    child = create_node(succ, node, "", child_cost, depth + 1)
                     heappush(frontier, (child_cost, child))
 
 
@@ -29,8 +27,7 @@ def index(f, s):
 
 
 def uniform_cost_graph_search(problem):
-    initial_node = create_node(problem.initial_state(), None,
-                               "", 0, 0)
+    initial_node = create_node(problem.initial_state(), None, "", 0, 0)
     frontier = [(0, initial_node)]
     explored = set()
     n_visits = 0
@@ -47,8 +44,7 @@ def uniform_cost_graph_search(problem):
             else:
                 for succ, cost in problem.successors(state):
                     child_cost = path_cost + cost
-                    child = create_node(succ, node, "", child_cost,
-                                        depth + 1)
+                    child = create_node(succ, node, "", child_cost, depth + 1)
                     if succ not in explored:
                         idx = index(frontier, succ)
                         if idx < 0:

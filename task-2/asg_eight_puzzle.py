@@ -9,6 +9,6 @@ if goal_node is not None:
     utils.print_solution(goal_node)
     print("========")
     print("Path cost = %d" % goal_node[3])
-    print("Number of Visited States = %d" % n_visits)
+    print("Number of Visited Nodes = %d" % n_visits)
 else:
-    print("No solutions found")()
+    print("No solutions found")

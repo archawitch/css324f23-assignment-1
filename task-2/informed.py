@@ -53,6 +53,7 @@ def a_star_graph_search(problem, h):
         if not frontier:
             return (None, n_visits)
         else:
+            print(n_visits)
             n_visits += 1
             _, node = heappop(frontier)
             state, _, _, path_cost, depth = node
@@ -62,8 +63,7 @@ def a_star_graph_search(problem, h):
             else:
                 for succ, cost in problem.successors(state):
                     child_cost = path_cost + cost
-                    child = create_node(succ, node, "", \
-                        child_cost, depth + 1)
+                    child = create_node(succ, node, "", child_cost, depth + 1)
                     h_value = h(succ)
                     if succ not in explored:
                         idx = index(frontier, succ)

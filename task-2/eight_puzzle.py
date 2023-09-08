@@ -43,12 +43,20 @@ def h1(s):
     # The for loop counts the number of elements that is different from
     # the goal configuration.
     # We start from index 1 to 8 because the blank is excluded.
-    for idx in range(1, 9):
+    for idx in range(0, 8):
         if goal[idx] != board[idx]:
             res += 1
     return res
 
 def h3(s):
     # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
-    return 0
+    res = 0
+    for idx, tile in enumerate(board):
+        if(tile > 0):
+            goal_location = goal.index(tile)
+            row_board, col_board = idx/3, idx%3
+            row_goal, col_goal = goal_location/3, goal_location%3
+            res += abs(row_board-row_goal) + abs(col_board-col_goal)
+    return res
