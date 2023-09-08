@@ -57,7 +57,7 @@ def h3(s):
         if(tile > 0):
             # Get index of the goal state
             goal_location = goal.index(tile)
-            # Find locations of current tile and goal tile
+            # Find locations of current tile and its goal tile
             row_board, col_board = idx//3, idx%3
             row_goal, col_goal = goal_location//3, goal_location%3
             # Check if current location and its goal location are not in the same row or column
