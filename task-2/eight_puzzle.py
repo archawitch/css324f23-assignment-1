@@ -55,8 +55,12 @@ def h3(s):
     res = 0
     for idx, tile in enumerate(board):
         if(tile > 0):
+            # Get index of the goal state
             goal_location = goal.index(tile)
-            row_board, col_board = idx/3, idx%3
-            row_goal, col_goal = goal_location/3, goal_location%3
-            res += abs(row_board-row_goal) + abs(col_board-col_goal)
+            # Find locations of current tile and goal tile
+            row_board, col_board = idx//3, idx%3
+            row_goal, col_goal = goal_location//3, goal_location%3
+            # Check if current location and its goal location are not in the same row or column
+            if(row_board != row_goal):   res+=1
+            if(col_board != col_goal):   res+=1
     return res
