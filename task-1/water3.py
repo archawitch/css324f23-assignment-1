@@ -7,20 +7,6 @@ def is_goal(s):
 def successors(s):
     x, y, z = s
     cap_x, cap_y, cap_z = 8, 5, 3
-    # Try to empty one bottle
-    if x > 0:
-        yield((0, y, z), x)
-    if y > 0:
-        yield((x, 0, z), y)
-    if z > 0:
-        yield((x, y, 0), z)
-    # Try to fill up one bottle
-    if x < cap_x:
-        yield((cap_x, y, z), cap_x - x)
-    if y < cap_y:
-        yield((x, cap_y, z), cap_y - y)
-    if z < cap_z:
-        yield((x, y, cap_z), cap_z - z)
     # Try to pour from one to another
     # x -> y
     t = cap_y - y

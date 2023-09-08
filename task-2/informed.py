@@ -53,7 +53,6 @@ def a_star_graph_search(problem, h):
         if not frontier:
             return (None, n_visits)
         else:
-            print(n_visits)
             n_visits += 1
             _, node = heappop(frontier)
             state, _, _, path_cost, depth = node
